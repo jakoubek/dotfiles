@@ -7,6 +7,9 @@ if [[ -e /usr/share/zsh/manjaro-zsh-prompt ]]; then
   source /usr/share/zsh/manjaro-zsh-prompt
 fi
 
+path+='/usr/lib/elixir/bin'
+export PATH
+
 fpath=($ZDOTDIR/external $fpath)
 
 source "$XDG_CONFIG_HOME/zsh/aliases"
