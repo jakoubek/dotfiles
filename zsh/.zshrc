@@ -1,14 +1,5 @@
-# Source manjaro-zsh-configuration
-if [[ -e /usr/share/zsh/manjaro-zsh-config ]]; then
-  source /usr/share/zsh/manjaro-zsh-config
-fi
-# Use manjaro zsh prompt
-if [[ -e /usr/share/zsh/manjaro-zsh-prompt ]]; then
-  source /usr/share/zsh/manjaro-zsh-prompt
-fi
-
-path+='/usr/lib/elixir/bin'
-export PATH
+#path+='/usr/lib/elixir/bin'
+#export PATH
 
 fpath=($ZDOTDIR/external $fpath)
 
@@ -50,6 +41,11 @@ source $DOTFILES/zsh/external/bd.zsh
 if [ $(command -v "fzf") ]; then
     source /usr/share/fzf/completion.zsh
     source /usr/share/fzf/key-bindings.zsh
+fi
+
+if [ "$(tty)" = "/dev/tty1" ];
+then
+    pgrep i3 || exec startx "$XDG_CONFIG_HOME/X11/.xinitrc"
 fi
 
 source $DOTFILES/zsh/scripts.sh
