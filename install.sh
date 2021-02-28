@@ -2,27 +2,33 @@
 
 # nvim
 
-mkdir -p "$XDG_CONFIG_HOME/nvim"
-mkdir -p "$XDG_CONFIG_HOME/nvim/undo"
+mkdir -p "$HOME/.config/nvim"
+mkdir -p "$HOME/.config/nvim/undo"
 
-ln -sf "$DOTFILES/nvim/init.vim" "$XDG_CONFIG_HOME/nvim"
+ln -sf "$HOME/dotfiles/nvim/init.vim" "$HOME/.config/nvim"
 
 # X11
 
-ln -sf "$DOTFILES/X11/.Xresources" "$HOME/.Xresources"
+rm -rf "$HOME/.config/X11"
+ln -s "$HOME/dotfiles/X11" "$HOME/.config"
+
+# i3
+
+rm -rf "$HOME/.config/i3"
+ln -s "$HOME/dotfiles/i3" "$HOME/.config"
 
 # ZSH
 
-mkdir -p "$XDG_CONFIG_HOME/zsh"
-ln -sf "$DOTFILES/zsh/.zshenv" "$HOME"
-ln -sf "$DOTFILES/zsh/.zshrc" "$XDG_CONFIG_HOME/zsh"
-ln -sf "$DOTFILES/zsh/aliases" "$XDG_CONFIG_HOME/zsh/aliases"
+mkdir -p "$HOME/.config/zsh"
+ln -sf "$HOME/dotfiles/zsh/.zshenv" "$HOME"
+ln -sf "$HOME/dotfiles/zsh/.zshrc" "$HOME/.config/zsh"
+ln -sf "$HOME/dotfiles/zsh/aliases" "$HOME/.config/zsh/aliases"
 
-rm -rf "$XDG_CONFIG_HOME/zsh/external"
-ln -sf "$DOTFILES/zsh/external/" "$XDG_CONFIG_HOME/zsh"
+rm -rf "$HOME/.config/zsh/external"
+ln -sf "$HOME/dotfiles/zsh/external/" "$HOME/.config/zsh"
 
 # Fonts
 
-mkdir -p "$XDG_DATA_HOME"
-cp -rf "$DOTFILES/fonts" "$XDG_DATA_HOME"
+#mkdir -p "$XDG_DATA_HOME"
+#cp -rf "$HOME/dotfiles/fonts" "$XDG_DATA_HOME"
 
